@@ -9,5 +9,5 @@ public enum PaymentMethod {
 
     CARD,
 
-    OTHER
+    CREDIT
 }

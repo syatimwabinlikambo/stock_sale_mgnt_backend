@@ -151,6 +151,14 @@ public class Sale {
     )
     private List<Payment> payments = new ArrayList<>();
 
+    @Column(
+            name = "receipt_number",
+            nullable = false,
+            unique = true,
+            length = 50
+    )
+    private String receiptNumber;
+
 
     /*
      * ============================================================
