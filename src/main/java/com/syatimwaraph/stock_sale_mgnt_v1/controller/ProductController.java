@@ -132,4 +132,16 @@ public class ProductController {
         return ResponseEntity.noContent()
                 .build();
     }
+
+
+    // ========================================================
+    // DELETE
+    // ========================================================
+
+    @GetMapping("/low-stock")
+    public ResponseEntity<List<ProductResponse>> getLowStockProducts() {
+        return ResponseEntity.ok(
+                productService.getLowStockProducts()
+        );
+    }
 }

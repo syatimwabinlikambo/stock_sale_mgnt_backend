@@ -23,13 +23,21 @@ public interface ProductRepository
     );
 
     @Query("""
-    SELECT p
-    FROM Product p
-    WHERE p.stock > 0
-      AND p.stock < p.alertStock
-    ORDER BY p.stock ASC
-""")
+        SELECT p
+        FROM Product p
+        WHERE COALESCE(p.stock, 0) <= COALESCE(p.alertStock, 0)
+        ORDER BY COALESCE(p.stock, 0) ASC, p.productName ASC
+    """)
     List<Product> findLowStockProducts();
+
+//    @Query("""
+//    SELECT p
+//    FROM Product p
+//    WHERE p.stock > 0
+//      AND p.stock < p.alertStock
+//    ORDER BY p.stock ASC
+//""")
+//    List<Product> findLowStockProducts();
 
     @Query("""
     SELECT p
@@ -38,4 +46,5 @@ public interface ProductRepository
     ORDER BY p.productName ASC
 """)
     List<Product> findOutOfStockProducts();
+
 }

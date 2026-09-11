@@ -203,6 +203,19 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
+    // ========================================================
+    // LOW STOCK
+    // ========================================================
+
+    @Transactional(readOnly = true)
+    public List<ProductResponse> getLowStockProducts() {
+
+        return productRepository.findLowStockProducts()
+                .stream()
+                .map(this::mapToResponse)
+                .toList();
+    }
+
 
     // ========================================================
     // MAPPER
