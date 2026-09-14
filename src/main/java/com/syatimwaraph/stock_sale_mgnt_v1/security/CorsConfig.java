@@ -22,7 +22,8 @@ public class CorsConfig {
                         "http://localhost:5500",
                         "http://127.0.0.1:5500",
                         "http://127.0.0.1:57500",
-                        "http://localhost:57500"
+                        "http://localhost:57500",
+                        "https://stock-sale-mgnt-frontend.onrender.com:80"
                 )
         );
 
